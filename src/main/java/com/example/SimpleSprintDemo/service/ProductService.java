@@ -7,8 +7,8 @@ import com.example.SimpleSprintDemo.dto.ProductResponseDTO;
 
 public interface ProductService {
 	ProductResponseDTO create(ProductRequestDTO p);
-	void update(int id, ProductRequestDTO p);
-	void remove(int id);
+	Boolean update(int id, ProductRequestDTO p);
+	Boolean remove(int id);
 	ProductResponseDTO getProductById(int id);
 	List<ProductResponseDTO> getAllProducts();
 }

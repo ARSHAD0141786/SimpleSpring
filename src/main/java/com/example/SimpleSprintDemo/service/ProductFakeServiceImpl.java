@@ -37,13 +37,15 @@ public class ProductFakeServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void update(int id, ProductRequestDTO p) {
+	public Boolean update(int id, ProductRequestDTO p) {
 		fakeStoreApiClient.updateFakeProduct(id, productReqDTOToFakeProductReqDTO(p));
+		return true;
 	}
 
 	@Override
-	public void remove(int id) {
+	public Boolean remove(int id) {
 		fakeStoreApiClient.deleteFakeProduct(id);
+		return true;
 	}
 
 	@Override
