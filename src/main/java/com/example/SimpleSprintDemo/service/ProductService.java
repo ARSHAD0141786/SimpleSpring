@@ -6,9 +6,9 @@ import com.example.SimpleSprintDemo.dto.ProductRequestDTO;
 import com.example.SimpleSprintDemo.dto.ProductResponseDTO;
 
 public interface ProductService {
-	void create(ProductRequestDTO p);
-	void update(ProductRequestDTO p);
-	void remove(ProductRequestDTO p);
+	ProductResponseDTO create(ProductRequestDTO p);
+	void update(int id, ProductRequestDTO p);
+	void remove(int id);
 	ProductResponseDTO getProductById(int id);
 	List<ProductResponseDTO> getAllProducts();
 }

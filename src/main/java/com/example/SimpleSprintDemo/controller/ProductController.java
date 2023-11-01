@@ -6,10 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.SimpleSprintDemo.dto.ProductRequestDTO;
 import com.example.SimpleSprintDemo.dto.ProductResponseDTO;
 import com.example.SimpleSprintDemo.exception.ProductNotFoundException;
 import com.example.SimpleSprintDemo.service.ProductService;
@@ -35,5 +39,21 @@ public class ProductController {
 	public ResponseEntity<List> getAllProducts() {
 		List<ProductResponseDTO> products = this.productService.getAllProducts();
 		return ResponseEntity.ok(products);
+	}
+	
+	@PostMapping("/products")
+	public ResponseEntity<ProductResponseDTO> createProduct(ProductRequestDTO product){
+		return ResponseEntity.ok(this.productService.create(product));
+	}
+	
+	@PutMapping("/products/{id}")
+	public ResponseEntity<Boolean> updateProduct(int id, ProductRequestDTO product){
+		return ResponseEntity.ok(true);
+	}
+	
+	@DeleteMapping("/products/{id}")
+	public ResponseEntity<Boolean> removeProduct(int id){
+		this.productService.remove(id);
+		return ResponseEntity.ok(true);
 	}
 }

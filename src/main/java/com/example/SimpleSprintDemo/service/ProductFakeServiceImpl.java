@@ -9,8 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.SimpleSprintDemo.client.FakeStoreAPIClient;
+import com.example.SimpleSprintDemo.dto.FakeProductResponseDTO;
 import com.example.SimpleSprintDemo.dto.ProductRequestDTO;
 import com.example.SimpleSprintDemo.dto.ProductResponseDTO;
+
+import static com.example.SimpleSprintDemo.mappers.ProductMapper.fakeProductResDTOToProductResDTO;
+import static com.example.SimpleSprintDemo.mappers.ProductMapper.productReqDTOToFakeProductReqDTO;;
 
 /**
  * This class with call a third party APIs, to manipulate products.
@@ -22,43 +27,39 @@ public class ProductFakeServiceImpl implements ProductService {
 	@Autowired
 	RestTemplateBuilder restTemplateBuilder;
 	
+	@Autowired
+	FakeStoreAPIClient fakeStoreApiClient;
+	
 	@Override
-	public void create(ProductRequestDTO p) {
-		// TODO Auto-generated method stub
-		
+	public ProductResponseDTO create(ProductRequestDTO p) {
+		FakeProductResponseDTO fakeProduct = fakeStoreApiClient.createFakeProduct(productReqDTOToFakeProductReqDTO(p));
+		return fakeProductResDTOToProductResDTO(fakeProduct);	
 	}
 
 	@Override
-	public void update(ProductRequestDTO p) {
-		// TODO Auto-generated method stub
-		
+	public void update(int id, ProductRequestDTO p) {
+		fakeStoreApiClient.updateFakeProduct(id, productReqDTOToFakeProductReqDTO(p));
 	}
 
 	@Override
-	public void remove(ProductRequestDTO p) {
-		// TODO Auto-generated method stub
-		
+	public void remove(int id) {
+		fakeStoreApiClient.deleteFakeProduct(id);
 	}
 
 	@Override
 	public ProductResponseDTO getProductById(int id) {
-		String getAllProductsUrl = "https://fakestoreapi.com/products/" + id;
-		RestTemplate restTemplate = restTemplateBuilder.build();
-		ResponseEntity<ProductResponseDTO> product = restTemplate.getForEntity(getAllProductsUrl, ProductResponseDTO.class);
-		
-		return product.getBody();
+		FakeProductResponseDTO fakeProduct = fakeStoreApiClient.getFakeProductById(id);
+		return fakeProductResDTOToProductResDTO(fakeProduct);
 	}
 
 	@Override
 	public List getAllProducts() {
-		String getAllProductsUrl = "https://fakestoreapi.com/products";
-		RestTemplate restTemplate = restTemplateBuilder.build();
-		ResponseEntity<ProductResponseDTO[]> productsList = restTemplate.getForEntity(getAllProductsUrl, ProductResponseDTO[].class);
+		List<FakeProductResponseDTO> fakeProducts = fakeStoreApiClient.getFakeProducts();
 		
 		List<ProductResponseDTO> allProducts = new ArrayList<>();
 		
-		for(ProductResponseDTO eachProduct : productsList.getBody()) {
-			allProducts.add(eachProduct);
+		for(FakeProductResponseDTO eachProduct : fakeProducts) {
+			allProducts.add(fakeProductResDTOToProductResDTO(eachProduct));
 		}
 		return allProducts;
 	}
