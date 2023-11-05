@@ -13,9 +13,11 @@ import com.example.SimpleSprintDemo.client.FakeStoreAPIClient;
 import com.example.SimpleSprintDemo.dto.FakeProductResponseDTO;
 import com.example.SimpleSprintDemo.dto.ProductRequestDTO;
 import com.example.SimpleSprintDemo.dto.ProductResponseDTO;
+import com.example.SimpleSprintDemo.exception.ProductNotFoundException;
 
 import static com.example.SimpleSprintDemo.mappers.ProductMapper.fakeProductResDTOToProductResDTO;
 import static com.example.SimpleSprintDemo.mappers.ProductMapper.productReqDTOToFakeProductReqDTO;;
+import static com.example.SimpleSprintDemo.util.ProductUtils.isNull;
 
 /**
  * This class with call a third party APIs, to manipulate products.
@@ -49,8 +51,11 @@ public class ProductFakeServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductResponseDTO getProductById(int id) {
+	public ProductResponseDTO getProductById(int id) throws ProductNotFoundException {
 		FakeProductResponseDTO fakeProduct = fakeStoreApiClient.getFakeProductById(id);
+		if(isNull(fakeProduct)){
+            throw new ProductNotFoundException("Product not found with id : " + id);
+        }
 		return fakeProductResDTOToProductResDTO(fakeProduct);
 	}
 
