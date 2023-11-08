@@ -16,7 +16,7 @@ import com.example.SimpleSprintDemo.dto.ProductResponseDTO;
 import com.example.SimpleSprintDemo.exception.ProductNotFoundException;
 
 import static com.example.SimpleSprintDemo.mappers.ProductMapper.fakeProductResDTOToProductResDTO;
-import static com.example.SimpleSprintDemo.mappers.ProductMapper.productReqDTOToFakeProductReqDTO;;
+import static com.example.SimpleSprintDemo.mappers.ProductMapper.productReqDTOToFakeProductReqDTO;
 import static com.example.SimpleSprintDemo.util.ProductUtils.isNull;
 
 /**
