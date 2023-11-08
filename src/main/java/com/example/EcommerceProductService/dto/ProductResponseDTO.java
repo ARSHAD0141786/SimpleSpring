@@ -1,13 +1,12 @@
-package com.example.SimpleSprintDemo.model;
+package com.example.EcommerceProductService.dto;
 
-import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-public class Product extends BaseModel {
+public class ProductResponseDTO {
+	int id;
     String title;
     String price;
     String category;

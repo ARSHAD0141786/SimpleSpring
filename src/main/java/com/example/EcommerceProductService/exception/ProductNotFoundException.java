@@ -1,4 +1,4 @@
-package com.example.SimpleSprintDemo.exception;
+package com.example.EcommerceProductService.exception;
 
 public class ProductNotFoundException extends Exception {
 	public ProductNotFoundException() {

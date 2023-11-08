@@ -1,4 +1,4 @@
-package com.example.SimpleSprintDemo;
+package com.example.EcommerceProductService;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

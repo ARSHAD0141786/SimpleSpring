@@ -1,4 +1,4 @@
-package com.example.SimpleSprintDemo.util;
+package com.example.EcommerceProductService.util;
 
 public class ProductUtils {
 	public static boolean isNull(Object obj) {

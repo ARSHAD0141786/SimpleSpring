@@ -1,4 +1,4 @@
-package com.example.SimpleSprintDemo;
+package com.example.EcommerceProductService;
 
 public class Person {
 	String name;

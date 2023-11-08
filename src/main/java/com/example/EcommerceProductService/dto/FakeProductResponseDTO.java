@@ -1,11 +1,11 @@
-package com.example.SimpleSprintDemo.dto;
+package com.example.EcommerceProductService.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductResponseDTO {
+public class FakeProductResponseDTO {
 	int id;
     String title;
     String price;

@@ -1,6 +1,11 @@
-package com.example.SimpleSprintDemo.service;
+package com.example.EcommerceProductService.service;
 
 import java.util.List;
+
+import static com.example.EcommerceProductService.mappers.ProductMapper.fakeProductResDTOToProductResDTO;
+import static com.example.EcommerceProductService.mappers.ProductMapper.productReqDTOToFakeProductReqDTO;
+import static com.example.EcommerceProductService.util.ProductUtils.isNull;
+
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +14,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.SimpleSprintDemo.client.FakeStoreAPIClient;
-import com.example.SimpleSprintDemo.dto.FakeProductResponseDTO;
-import com.example.SimpleSprintDemo.dto.ProductRequestDTO;
-import com.example.SimpleSprintDemo.dto.ProductResponseDTO;
-import com.example.SimpleSprintDemo.exception.ProductNotFoundException;
-
-import static com.example.SimpleSprintDemo.mappers.ProductMapper.fakeProductResDTOToProductResDTO;
-import static com.example.SimpleSprintDemo.mappers.ProductMapper.productReqDTOToFakeProductReqDTO;
-import static com.example.SimpleSprintDemo.util.ProductUtils.isNull;
+import com.example.EcommerceProductService.client.FakeStoreAPIClient;
+import com.example.EcommerceProductService.dto.FakeProductResponseDTO;
+import com.example.EcommerceProductService.dto.ProductRequestDTO;
+import com.example.EcommerceProductService.dto.ProductResponseDTO;
+import com.example.EcommerceProductService.exception.ProductNotFoundException;
 
 /**
  * This class with call a third party APIs, to manipulate products.

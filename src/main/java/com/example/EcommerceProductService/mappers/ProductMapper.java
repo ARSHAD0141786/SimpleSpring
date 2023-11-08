@@ -1,9 +1,9 @@
-package com.example.SimpleSprintDemo.mappers;
+package com.example.EcommerceProductService.mappers;
 
-import com.example.SimpleSprintDemo.dto.FakeProductRequestDTO;
-import com.example.SimpleSprintDemo.dto.FakeProductResponseDTO;
-import com.example.SimpleSprintDemo.dto.ProductRequestDTO;
-import com.example.SimpleSprintDemo.dto.ProductResponseDTO;
+import com.example.EcommerceProductService.dto.FakeProductRequestDTO;
+import com.example.EcommerceProductService.dto.FakeProductResponseDTO;
+import com.example.EcommerceProductService.dto.ProductRequestDTO;
+import com.example.EcommerceProductService.dto.ProductResponseDTO;
 
 public class ProductMapper {
 	

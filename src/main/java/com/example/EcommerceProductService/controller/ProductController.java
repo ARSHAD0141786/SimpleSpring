@@ -1,4 +1,4 @@
-package com.example.SimpleSprintDemo.controller;
+package com.example.EcommerceProductService.controller;
 
 import java.util.List;
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.SimpleSprintDemo.dto.ProductRequestDTO;
-import com.example.SimpleSprintDemo.dto.ProductResponseDTO;
-import com.example.SimpleSprintDemo.exception.ProductNotFoundException;
-import com.example.SimpleSprintDemo.service.ProductService;
+import com.example.EcommerceProductService.dto.ProductRequestDTO;
+import com.example.EcommerceProductService.dto.ProductResponseDTO;
+import com.example.EcommerceProductService.exception.ProductNotFoundException;
+import com.example.EcommerceProductService.service.ProductService;
 
 @RestController
 @Controller

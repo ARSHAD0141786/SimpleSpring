@@ -1,10 +1,12 @@
-package com.example.SimpleSprintDemo.controller.controllerAdvice;
+package com.example.EcommerceProductService.controller.controllerAdvice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import com.example.SimpleSprintDemo.exception.ProductNotFoundException;
-import com.example.SimpleSprintDemo.dto.ErrorResponseDTO;
+
+import com.example.EcommerceProductService.dto.ErrorResponseDTO;
+import com.example.EcommerceProductService.exception.ProductNotFoundException;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
 @ControllerAdvice

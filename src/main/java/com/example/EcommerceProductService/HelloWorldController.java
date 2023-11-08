@@ -1,4 +1,4 @@
-package com.example.SimpleSprintDemo;
+package com.example.EcommerceProductService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
