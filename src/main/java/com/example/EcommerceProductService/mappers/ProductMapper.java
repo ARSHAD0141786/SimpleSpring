@@ -1,9 +1,12 @@
 package com.example.EcommerceProductService.mappers;
 
+import java.util.UUID;
+
 import com.example.EcommerceProductService.dto.FakeProductRequestDTO;
 import com.example.EcommerceProductService.dto.FakeProductResponseDTO;
 import com.example.EcommerceProductService.dto.ProductRequestDTO;
 import com.example.EcommerceProductService.dto.ProductResponseDTO;
+import com.example.EcommerceProductService.model.Product;
 
 public class ProductMapper {
 	
@@ -21,13 +24,24 @@ public class ProductMapper {
 	
 	public static ProductResponseDTO fakeProductResDTOToProductResDTO(FakeProductResponseDTO fakeProduct) {
 		ProductResponseDTO product = new ProductResponseDTO();
-		product.setId(fakeProduct.getId());
+		//product.setId(fakeProduct.getId());
 		product.setTitle(fakeProduct.getTitle());
 		product.setPrice(fakeProduct.getPrice());
 		product.setCategory(fakeProduct.getCategory());
 		product.setDescription(fakeProduct.getDescription());
 		product.setImage(fakeProduct.getImage());
 		
+		return product;
+	}
+	
+	public static ProductResponseDTO productToProductResponseDTO(Product p) {
+		ProductResponseDTO product = new ProductResponseDTO();
+		product.setId(p.getId());
+		product.setTitle(p.getTitle());
+		product.setPrice(p.getPrice().getAmount() + " " + p.getPrice().getCurrency());
+		product.setCategory(p.getCategory().getCategory());
+		product.setDescription(p.getDescription());
+		product.setImage(p.getImage());
 		return product;
 	}
 }

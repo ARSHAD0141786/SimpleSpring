@@ -1,12 +1,14 @@
 package com.example.EcommerceProductService.dto;
 
+import java.util.UUID;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class ProductResponseDTO {
-	int id;
+	UUID id;
     String title;
     String price;
     String category;

@@ -23,11 +23,10 @@ import com.example.EcommerceProductService.service.ProductService;
 @Controller
 public class ProductController {
 	
-	@Autowired
 	private ProductService productService;
 	
-	@Autowired
-	public ProductController(@Qualifier("fakeStoreProductService") ProductService ps) {
+	
+	public ProductController(@Qualifier("productServiceImpl") ProductService ps) {
 		this.productService = ps;
 	}
 	

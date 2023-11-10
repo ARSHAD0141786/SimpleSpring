@@ -17,12 +17,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass
 public class BaseModel {
 	@Id
 	@GeneratedValue(generator="uuidGenerator")
-	@GenericGenerator(name = "uuidGenerator", strategy="uuid2")
+	@GenericGenerator(name = "uuidGenerator", strategy = "uuid2")
 	@Column(name="id", columnDefinition = "binary(16)", nullable = false, updatable = false)
 	private UUID id;
 }
